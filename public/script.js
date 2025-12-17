@@ -43,7 +43,7 @@ async function fetchDashboardStats() {
 }
 
 // =========================================================
-//                   CORE APP LOGIC
+//                  CORE APP LOGIC
 // =========================================================
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -67,6 +67,34 @@ document.addEventListener('DOMContentLoaded', () => {
             this.classList.add('active');
         });
     });
+
+    // --- MODERATOR LOGIN HANDLER (NEW) ---
+    const loginBtn = document.getElementById('mod-login-btn');
+    if (loginBtn) {
+        loginBtn.addEventListener('click', async () => {
+            const user = document.getElementById('mod-username').value;
+            const pass = document.getElementById('mod-password').value;
+            const errorMsg = document.getElementById('mod-login-error');
+
+            try {
+                const res = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username: user, password: pass })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    sessionStorage.setItem('isLoggedIn', 'true');
+                    window.location.href = 'moderator.html';
+                } else {
+                    if (errorMsg) {
+                        errorMsg.textContent = "❌ Invalid Credentials";
+                        errorMsg.style.display = 'block';
+                    } else { alert("Invalid Credentials"); }
+                }
+            } catch (err) { console.error("Login Error:", err); }
+        });
+    }
 });
 
 // --- Public History Helpers ---
@@ -116,7 +144,7 @@ document.getElementById('potholeForm')?.addEventListener('submit', async functio
     const successMsg = document.getElementById('successMsg');
     
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Submitting to Atlas...';
+    submitBtn.textContent = 'Submitting...';
 
     const formData = {
         phone: document.getElementById('phone').value,
@@ -256,4 +284,10 @@ async function deleteComplaint(refId) {
         removeFromLocalHistory(refId);
         fetchAllComplaints();
     }
+}
+
+// --- LOGOUT HANDLER (NEW) ---
+window.logout = function() {
+    sessionStorage.removeItem('isLoggedIn');
+    window.location.href = 'loginpage_moderator.html';
 }

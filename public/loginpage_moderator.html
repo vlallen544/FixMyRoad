@@ -10,14 +10,14 @@
   <div class="container">
     <header>
       <div class="header-left">
-        <h1 class="logo">FixMyRoad</h1>
+        <h1 class="logo">🚧 FixMyRoad</h1>
         <div class="tagline">Rapid Pothole Complaint Tracking System</div>
       </div>
       <nav class="nav-menu">
-        <a href="page1.html">Report Pothole</a>
-        <a href="page1.html#track-status">Track Status</a>
+        <a href="index.html">Report Pothole</a>
+        <a href="index.html#track-status">Track Status</a>
         <a href="about.html">About Us</a>
-        <a href="login.html" class="active">Moderator Login</a>
+        <a href="loginpage_moderator.html" class="active">Moderator Login</a>
       </nav>
     </header>
 
@@ -38,7 +38,7 @@
           <input type="password" id="mod-password" placeholder="Enter password" required>
         </div>
 
-        <button type="button" class="btn-primary" id="mod-login-btn">
+        <button type="button" class="btn-primary" id="mod-login-btn" onclick="moderatorLogin()">
           Login to Moderator Panel
         </button>
       </div>
@@ -48,6 +48,10 @@
       </div>
     </section>
   </div>
+
+  <footer>
+    <p>© 2025 FixMyRoad | Moderator Access Portal</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>

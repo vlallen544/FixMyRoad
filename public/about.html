@@ -15,22 +15,26 @@
             text-align: center;
         }
         .team-member-card {
-            /* Inherit look from stat-card but adjust for light background */
             background: #F8F9FA; 
             padding: 20px;
             border-radius: 16px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             border: 1px solid #D1D9E6;
+            transition: transform 0.3s ease;
+        }
+        .team-member-card:hover {
+            transform: translateY(-5px);
         }
         .member-name {
             font-size: 1.2rem;
             font-weight: 700;
-            color: #34495E; /* Slate Black */
+            color: #34495E;
             margin-top: 10px;
+            display: block;
         }
         .member-role {
             font-size: 0.9rem;
-            color: #6C7A89; /* Cool Grey */
+            color: #6C7A89;
         }
     </style>
 </head>
@@ -43,9 +47,9 @@
             </div>
             
             <nav class="nav-menu">
-                <a href="page1.html#report-pothole">Report Pothole</a> 
-                <a href="page1.html#track-status">Track Status</a>
-                <a href="about.html">About Us</a>
+                <a href="index.html#report-pothole">Report Pothole</a> 
+                <a href="index.html#track-status">Track Status</a>
+                <a href="about.html" class="active">About Us</a>
             </nav>
         </header>
 
@@ -89,7 +93,7 @@
         <section class="tracking-section" style="margin-bottom: 40px; text-align: center;">
             <h2 class="section-title">🤝 Get Involved</h2>
             <p class="section-subtitle">Have skills to contribute? Join our efforts to fix our city's roads.</p>
-            <button class="btn-secondary" style="margin-top: 10px; color: #C8FF00; border-color: #C8FF00;">Contact Us to Volunteer</button>
+            <button class="btn-secondary" style="margin-top: 10px;">Contact Us to Volunteer</button>
         </section>
         
     </div>
@@ -97,5 +101,7 @@
     <footer>
         <p>© 2025 FixMyRoad | Auto-complaints sent to BBMP helpline 1533 | Built for Bengaluru roads</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

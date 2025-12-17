@@ -33,11 +33,11 @@
                     <div class="stat-label">Response Time</div>
                 </div>
                 <div class="stat-card">
-                    <span class="stat-number">95%</span>
+                    <span class="stat-number" id="successRatePct">95%</span>
                     <div class="stat-label">Success Rate</div>
                 </div>
                 <div class="stat-card">
-                    <span class="stat-number">10K+</span>
+                    <span class="stat-number" id="roadsFixedCount">10K+</span>
                     <div class="stat-label">Roads Fixed</div>
                 </div>
                 <div class="stat-card">
@@ -102,6 +102,7 @@
                     ✅ Complaint sent successfully!<br>
                     <strong>Reference ID: <span id="refId"></span></strong><br>
                     BBMP will respond within 24 hours. Track status below.
+                    <button type="button" class="btn-secondary" style="margin-top:10px; width:100%" onclick="resetComplaintForm()">Submit Another</button>
                 </div>
 
                 <button type="submit" class="btn-primary" id="submitBtn">
@@ -120,7 +121,7 @@
                     <button class="btn-secondary" onclick="trackComplaint()">Track Status</button>
                 </div>
                 
-                <div id="statusResult" style="display: none;">
+                <div id="statusResult" style="display: none; margin-top: 20px;">
                     <h3 style="margin-bottom: 15px;">Status: <span id="currentStatus"></span></h3>
                     <div class="status-badges" id="statusTimeline"></div>
                 </div>

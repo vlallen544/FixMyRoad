@@ -5,7 +5,13 @@
     <title>FixMyRoad - Moderator Panel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css"> 
-    </head>
+    <script>
+        // Immediate security check: Redirect if not logged in
+        if (sessionStorage.getItem('isLoggedIn') !== 'true') {
+            window.location.href = 'loginpage_moderator.html';
+        }
+    </script>
+</head>
 <body>
     <div class="container">
         <header>
@@ -14,7 +20,7 @@
                 <div class="tagline">Review and Update Pothole Complaints</div>
             </div>
             <nav class="nav-menu">
-                <a href="page1.html">Public Dashboard</a>
+                <a href="index.html">Public Dashboard</a> 
                 <a href="moderator.html" class="active">Complaint List</a>
                 <a href="loginpage_moderator.html" onclick="logout()">Logout</a>
             </nav>
@@ -43,8 +49,9 @@
                             <th>Location</th>
                             <th>Severity</th>
                             <th>Contact</th>
-                            <th>Current Status</th>
-                            <th>Action</th>
+                            <th>Status</th>
+                            <th>Update</th>
+                            <th>Remove</th>
                         </tr>
                     </thead>
                     <tbody id="moderatorBody">

@@ -10,10 +10,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public')); 
 
 // =========================================================
-//              MONGODB ATLAS CONNECTION
+//               MONGODB ATLAS CONNECTION
 // =========================================================
 
-// Uses the environment variable for security, or your direct string as fallback
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb+srv://vlallen544_db_user:PRRfMslF3kW50tWF@fixmyroad.ktu7yey.mongodb.net/FixMyRoad?retryWrites=true&w=majority&appName=FixMyRoad";
 
 mongoose.connect(MONGODB_URI)
@@ -36,7 +35,7 @@ const complaintSchema = new mongoose.Schema({
 const Complaint = mongoose.model('Complaint', complaintSchema);
 
 // =========================================================
-//              DYNAMIC STATUS HISTORY HELPERS
+//               DYNAMIC STATUS HISTORY HELPERS
 // =========================================================
 
 function timeAgo(timestamp) {
@@ -67,7 +66,6 @@ function getDynamicStatusHistory(status, createdAt, updatedAt) {
     }
 
     if (status === 'Resolved') {
-        // Estimate an assignment time between creation and resolution for visual flow
         const assignedTimeMs = new Date(createdAt).getTime() + (new Date(updatedAt).getTime() - new Date(createdAt).getTime()) / 2;
         return baseTimeline.concat([
             { text: 'BBMP Assigned', time: timeAgo(new Date(assignedTimeMs)), class: 'status-in-progress' },
@@ -76,6 +74,20 @@ function getDynamicStatusHistory(status, createdAt, updatedAt) {
     }
     return baseTimeline;
 }
+
+// =========================================================
+//                MODERATOR LOGIN (NEW)
+// =========================================================
+
+app.post('/api/login', (req, res) => {
+    const { username, password } = req.body;
+    // Authorized credentials
+    if (username === "moderator" && password === "BBMP@2025") {
+        res.json({ success: true, message: "Authorized" });
+    } else {
+        res.status(401).json({ success: false, message: "Invalid username or password" });
+    }
+});
 
 // =========================================================
 //                     API ENDPOINTS 
@@ -167,10 +179,9 @@ app.delete('/api/delete-complaint/:refId', async (req, res) => {
 });
 
 // =========================================================
-//                   SERVER LISTENER
+//                  SERVER LISTENER
 // =========================================================
 
-// Port configuration for Render (process.env.PORT)
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`🚀 FixMyRoad Server live on port ${PORT}`);
