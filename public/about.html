@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FixMyRoad - About Us</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"> 
+    <style>
+        /* Specific styling for the team grid */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+            text-align: center;
+        }
+        .team-member-card {
+            /* Inherit look from stat-card but adjust for light background */
+            background: #F8F9FA; 
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid #D1D9E6;
+        }
+        .member-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #34495E; /* Slate Black */
+            margin-top: 10px;
+        }
+        .member-role {
+            font-size: 0.9rem;
+            color: #6C7A89; /* Cool Grey */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-left">
+                <h1 class="logo">🚧 FixMyRoad</h1>
+                <div class="tagline">Rapid Pothole Complaint & Tracking System</div>
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="page1.html#report-pothole">Report Pothole</a> 
+                <a href="page1.html#track-status">Track Status</a>
+                <a href="about.html">About Us</a>
+            </nav>
+        </header>
+
+        <section class="report-section">
+            <h2 class="section-title">ℹ️ Our Mission</h2>
+            <p class="section-subtitle">FixMyRoad is a non-profit initiative dedicated to civic engagement. We streamline the official complaint process, ensuring every reported pothole gets registered and tracked by the municipal corporation (BBMP), making Bengaluru's roads safer and smoother.</p>
+        </section>
+
+        <section class="report-section" style="margin-top: 20px;">
+            <h2 class="section-title">🛠️ The Team Behind FixMyRoad</h2>
+            <p class="section-subtitle">We are a dedicated group of volunteers passionate about civic technology and infrastructure in Bengaluru.</p>
+
+            <div class="team-grid">
+                <div class="team-member-card">
+                    <span class="member-name">V L Allen</span>
+                    <div class="member-role">Lead Developer</div>
+                </div>
+                <div class="team-member-card">
+                    <span class="member-name">Rishiraj</span>
+                    <div class="member-role">UI/UX Designer</div>
+                </div>
+                <div class="team-member-card">
+                    <span class="member-name">Yuvan</span>
+                    <div class="member-role">Infrastructure Analyst</div>
+                </div>
+                <div class="team-member-card">
+                    <span class="member-name">Himanshu</span>
+                    <div class="member-role">Backend Systems</div>
+                </div>
+                <div class="team-member-card">
+                    <span class="member-name">Niranjan</span>
+                    <div class="member-role">Data & Mapping</div>
+                </div>
+                <div class="team-member-card">
+                    <span class="member-name">Akshay Bhat</span>
+                    <div class="member-role">Community Outreach</div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="tracking-section" style="margin-bottom: 40px; text-align: center;">
+            <h2 class="section-title">🤝 Get Involved</h2>
+            <p class="section-subtitle">Have skills to contribute? Join our efforts to fix our city's roads.</p>
+            <button class="btn-secondary" style="margin-top: 10px; color: #C8FF00; border-color: #C8FF00;">Contact Us to Volunteer</button>
+        </section>
+        
+    </div>
+
+    <footer>
+        <p>© 2025 FixMyRoad | Auto-complaints sent to BBMP helpline 1533 | Built for Bengaluru roads</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FixMyRoad - Moderator Panel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"> 
+    </head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-left">
+                <h1 class="logo">🚧 Moderator Panel</h1>
+                <div class="tagline">Review and Update Pothole Complaints</div>
+            </div>
+            <nav class="nav-menu">
+                <a href="page1.html">Public Dashboard</a>
+                <a href="moderator.html" class="active">Complaint List</a>
+                <a href="loginpage_moderator.html" onclick="logout()">Logout</a>
+            </nav>
+        </header>
+
+        <section class="report-section">
+            <h2 class="section-title">All Submitted Complaints</h2>
+            <p class="section-subtitle">Use this panel to update the status of complaints and confirm assignment.</p>
+
+            <div class="filter-controls">
+                <label for="statusFilter">Filter Status:</label>
+                <select id="statusFilter" onchange="filterTable()">
+                    <option value="">All</option>
+                    <option value="Submitted">Submitted</option>
+                    <option value="Assigned">Assigned</option>
+                    <option value="Resolved">Resolved</option>
+                </select>
+            </div>
+            
+            <div class="history-card" style="margin-top: 20px;">
+                <table class="history-table">
+                    <thead>
+                        <tr>
+                            <th>Ref ID</th>
+                            <th>Date</th>
+                            <th>Location</th>
+                            <th>Severity</th>
+                            <th>Contact</th>
+                            <th>Current Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="moderatorBody">
+                        </tbody>
+                </table>
+                <p id="loadingMessage" style="text-align: center; padding: 20px;">Loading complaints...</p>
+                <p id="errorMessage" style="text-align: center; padding: 20px; color: #E63946; display: none;">Error loading data.</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2025 FixMyRoad | Moderator Access</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FixMyRoad - Moderator Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1 class="logo">FixMyRoad</h1>
+        <div class="tagline">Rapid Pothole Complaint Tracking System</div>
+      </div>
+      <nav class="nav-menu">
+        <a href="page1.html">Report Pothole</a>
+        <a href="page1.html#track-status">Track Status</a>
+        <a href="about.html">About Us</a>
+        <a href="login.html" class="active">Moderator Login</a>
+      </nav>
+    </header>
+
+    <section class="report-section">
+      <h2 class="section-title">Moderator Login</h2>
+      <p class="section-subtitle">
+        Secure access for FixMyRoad moderators to review and update complaints.
+      </p>
+
+      <div class="form-grid" style="max-width: 500px; margin: 0 auto;">
+        <div class="form-group full-width">
+          <label for="mod-username">Username</label>
+          <input type="text" id="mod-username" placeholder="Enter moderator username" required>
+        </div>
+
+        <div class="form-group full-width">
+          <label for="mod-password">Password</label>
+          <input type="password" id="mod-password" placeholder="Enter password" required>
+        </div>
+
+        <button type="button" class="btn-primary" id="mod-login-btn">
+          Login to Moderator Panel
+        </button>
+      </div>
+
+      <div id="mod-login-error" class="success-message" style="background: #E63946; margin-top: 15px; display:none;">
+        Invalid credentials. Access restricted to moderators.
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
